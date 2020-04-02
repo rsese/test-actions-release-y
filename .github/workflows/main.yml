@@ -1,0 +1,14 @@
+name: CI
+
+on:
+  release:
+    types: [created, published]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: webhook payload
+      run: cat $GITHUB_EVENT_PATH
