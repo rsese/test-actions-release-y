@@ -13,4 +13,5 @@ jobs:
     - name: webhook payload
       run: |
         cat $GITHUB_EVENT_PATH
-        cat $(jq --raw-output .release.tag_name "${{ github.event_path }}")
+        TAG=$(jq --raw-output .release.tag_name "${{ github.event_path }}")
+        echo "tag: ${TAG}"
