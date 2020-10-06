@@ -11,4 +11,6 @@ jobs:
 
     steps:
     - name: webhook payload
-      run: cat $GITHUB_EVENT_PATH
+      run: |
+        cat $GITHUB_EVENT_PATH
+        cat $(jq --raw-output .release.tag_name "${{ github.event_path }}")
